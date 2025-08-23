@@ -104,17 +104,6 @@
         <small>&copy; <time datetime="2025">2025</time> Soo M&A</small>
     </footer>
 
-    <script>
-        const btn = document.querySelector('.nav-toggle');
-        const nav = document.getElementById('site-nav');
-        if (btn && nav) {
-            btn.addEventListener('click', () => {
-                const expanded = btn.getAttribute('aria-expanded') === 'true';
-                btn.setAttribute('aria-expanded', String(!expanded));
-                nav.hidden = !expanded; 
-            }); 
-            nav.hidden = false;
-        }
-    </script>
+    <script src="무한반복기본기_JS.js"></script>
 </body>
 </html>

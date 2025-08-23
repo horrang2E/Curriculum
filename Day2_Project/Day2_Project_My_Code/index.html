@@ -1,0 +1,87 @@
+<!doctype html>
+<html lang="ko">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="CSS레이아웃">
+    <meta name="theme-color" content="#ffffff">
+    <title>Day2 Example</title>
+
+    <meta property="og:title" content="레이아웃 + 다크모드 + 접근성">
+    <meta property="og:description" content="HTML과 CSS의 학습">
+    <meta property="og:image" content="https://example.image.com">
+    <meta property="og:url" content="https://example.com">
+    <meta property="og:type" content="website">
+    <meta property="twitter:title" content="레이아웃 + 다크모드 + 접근성">
+    <meta property="twitter:description" content="HTML과 CSS의 학습">
+    <meta property="twitter:image" content="https://example.image.com">
+    <meta property="twitter:card" content="summary_large_image">
+
+    <link rel="stylesheet" href="style.css">
+    <link rel="icon" href="favicon.ico" type="image/x-icon">
+    <link rel="preload" href="https://example.image.com" type="image/jpeg" as="image">
+</head>
+
+<body>
+    <a class="skip-link" href="#content">본문으로 건너뛰기</a>
+    
+    <header id="site-header">
+        <div class="container">
+            <h1 class="site-title"><a href="index.html">Day2 Example</a></h1>
+            
+            <nav aria-label="메인 메뉴">
+                <ul class="nav-list" id="site-nav">
+                 <li><a href="index.html" aria-current="page">홈</a></li>
+                    <li><a href="function.html">기능</a></li>                    
+                    <li><a href="contact.html">연락</a></li>                    
+                </ul> 
+            </nav>
+            <button id="theme-toggle" class="btn theme-toggle" aria-label="다크모드로 전환" type="button">🌛Dark Mode</button>
+        </div>
+    </header>
+
+    <main id="content" class="container">
+        <article aria-labelledby="post-title">
+            <header class="article-header">
+                <h2 id="post-title">실무형 CSS레이아웃 & 다크모드</h2>
+                <p>Flex 기반 헤더, 가로 내비게이션, CSS 변수/다크모드, 반응형(모바일 퍼스트)까지 한 번에.</p>
+                <nav aria-label="자세히 보기 버튼">
+                    <button id="detail-button" class="btn detail-button" type="button" >자세히 보기</button>
+                    <button id="demo-button" class="btn demo-button" type="button">데모 버튼</button>
+                </nav>
+            </header>
+
+        <section aria-labelledby="bullet-points">
+            <h3 id="bullet-points">핵심 포인트</h3>
+            <ul>
+                <li>Flex 레이아웃으로 헤더/내비 가로 정렬</li>
+                <li>CSS 변수로 색상/스페이싱 관리</li>
+                <li>다크모드 상태 저장(localStorage)</li>
+                <li>접근성 (skip-link, aria, 명암비)</li>
+                <li>반응형 (600px 기준)</li>
+            </ul>
+        </section>
+
+        <aside aria-labelledby="aside-title">
+            <h3 id="aside-title">연락</h3>
+            <p>문의: <a herf="mailto:you@example.com">you@example.com</a></p>
+        </aside>
+
+            <footer class="article-footer">
+                <p>태그: <a href="#">#접근성</a> <a href="#">#시맨틱</a></p>
+            </footer>
+        </article>
+    </main>
+
+    <footer id="site-footer">
+        <small>&copy; <time datetime="2025-08-21">2025 Day2 Example</time></small>
+        <nav aria-label="푸터">
+            <ul>
+                <li><a href="privacy">보안</a></li>
+                <li><a href="terms">이용약관</a></li>
+            </ul>
+        </nav>
+    </footer>
+    <script src="script.js"></script>
+</body>
+</html>
