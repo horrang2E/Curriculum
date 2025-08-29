@@ -3,12 +3,35 @@
   --fg: #222222;
   --muted: #666666;
   --border: #dddddd;
+
   --header-bg: #f8f8f8;
   --footer-bg: #222222;
+
   --link: #333333;
   --focus: #2563eb;
+  
   --container-max: 1200px;
-  --space: 1rem;
+  --space-sm: 0.5rem;
+  --space-md: 1rem;
+  --space-lg: 2rem;
+
+  --font-base: 1rem;    
+  --font-lg: 1.25rem;   
+  --font-xl: 1.5rem;   
+  --font-family: "Noto Sans KR", sans-serif;
+}
+
+body.dark {
+  --bg: #1f2937;
+  --fg: #f9fafb;
+  --muted: #9ca3af;
+  --border: #374151;
+
+  --header-bg: #111827;
+  --footer-bg: #000000;
+
+  --link: #60a5fa;
+  --focus: #3b82f6;
 }
 
 *, *::before, *::after { box-sizing: border-box; }

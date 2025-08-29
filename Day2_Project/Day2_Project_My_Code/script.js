@@ -11,16 +11,6 @@ btn.addEventListener("click", () => {
   btn.setAttribute("aria-label", isDark ? "다크모드로 전환" : "라이트모드로 전환");
 });
 
-const menuBtn = document.getElementById('menu-toggle');
-const body    = document.body;
-
-if (menuBtn) {
-  menuBtn.addEventListener('click', () => {
-    const expanded = menuBtn.getAttribute('aria-expanded') === 'true';
-    menuBtn.setAttribute('aria-expanded', String(!expanded));
-    menuBtn.setAttribute('aria-label', expanded ? '메뉴 열기' : '메뉴 닫기');
-
-    // 펼침/접힘은 body 클래스 토글로 제어 (CSS와 연동)
-    body.classList.toggle('nav-open', !expanded);
-  });
-}
+demoBtn?.addEventListener("click", () => {
+  alert("데모 동작: 이벤트 리스너가 연결돼 있어요!");
+});

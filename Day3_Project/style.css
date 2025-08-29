@@ -1,0 +1,122 @@
+:root{
+  /* Color tokens */
+  --bg:#ffffff; --fg:#222222; --muted:#666666; --border:#e5e7eb;
+  --link:#2563eb; --focus:#3b82f6;
+
+  /* Surfaces (역할-중립) */
+  --surface-1: var(--bg);
+  --surface-2: #f8f9fb;
+
+  /* Component aliases */
+  --header-bg: var(--surface-2);
+  --footer-bg: var(--surface-1);
+
+  /* Layout tokens */
+  --container-max:1200px;
+  --space-xs:.25rem; --space-sm:.5rem; --space-md:1rem; --space-lg:2rem;
+  --radius:12px;
+  --shadow-sm:0 1px 2px rgba(0,0,0,.06);
+
+  /* Type scale */
+  --font-base:1rem; --font-lg:1.125rem; --font-xl:clamp(1.25rem, 1rem + 1vw, 1.75rem);
+  --font-family:"Noto Sans KR", system-ui, -apple-system, Segoe UI, Roboto, sans-serif;
+}
+
+/* Dark theme */
+body[data-theme="dark"]{
+  --bg:#0f172a; --fg:#e5e7eb; --muted:#9ca3af; --border:#334155;
+  --link:#60a5fa; --focus:#3b82f6;
+  --surface-1:#0b1220; --surface-2:#111827;
+}
+
+/* Reset / Base */
+*,*::before,*::after{ box-sizing:border-box; }
+html{ line-height:1.5; -webkit-text-size-adjust:100%; }
+body{
+  margin:0; background:var(--bg); color:var(--fg);
+  font-family:var(--font-family); font-size:var(--font-base);
+}
+img{ display:block; max-width:100%; height:auto; }
+a{ color:var(--link); text-decoration:none; }
+a:hover{ text-decoration:underline; }
+[hidden]{ display:none !important; }
+:focus-visible{ outline:3px solid var(--focus); outline-offset:2px; }
+
+/* Skip link */
+.skip-link{
+  position:absolute; left:-999px; top:auto; width:1px; height:1px; overflow:hidden;
+}
+.skip-link:focus{
+  position:static; width:auto; height:auto;
+  margin:var(--space-md); padding:.5rem 1rem;
+  background:#000; color:#fff; z-index:1000;
+}
+
+/* Layout */
+.container{ max-width:var(--container-max); margin-inline:auto; padding-inline:var(--space-md); }
+
+
+.header-row, .footer-row{ display:flex; align-items:center; justify-content:space-between; gap:var(--space-md); }
+main{ padding-block:var(--space-lg); }
+.muted{ color:var(--muted); }
+
+
+
+
+
+
+
+/* Header / Nav (Day2 복습) */
+#site-header{ background:var(--header-bg); border-bottom:1px solid var(--border); }
+.site-title{ margin:0; font-size:var(--font-xl); }
+.site-title a{ color:inherit; text-decoration:none; }
+.nav-list{ display:flex; gap:var(--space-md); list-style:none; padding:0; margin:0; }
+.nav-list a[aria-current="page"]{ font-weight:700; text-decoration:underline; }
+
+
+
+
+
+
+
+/* Buttons (Day2 복습) */
+.btn{
+  padding:.5rem .75rem; border:1px solid var(--border);
+  border-radius:var(--radius); background:transparent; color:inherit; cursor:pointer;
+}
+.btn:hover{ background:rgba(0,0,0,.04); }
+.btn-primary{ background:var(--focus); color:#fff; border:none; }
+.btn-primary:hover{ filter:brightness(.95); }
+.btn-secondary{ background:transparent; }
+.actions{ display:flex; gap:var(--space-sm); margin-top:var(--space-md); flex-wrap:wrap; }
+
+/* Cards Grid (Day3 핵심) */
+.card-grid{
+  display:grid; gap:var(--space-md);
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  padding:0; list-style:none; margin:0;
+}
+.card{
+  background:var(--surface-2); border:1px solid var(--border);
+  border-radius:var(--radius); overflow:hidden;
+  display:flex; flex-direction:column; box-shadow:var(--shadow-sm);
+}
+.card figure{ margin:0; }
+.card img{ aspect-ratio:3/2; object-fit:cover; width:100%; }
+.card-title{ margin:.75rem var(--space-md) 0; font-size:1.125rem; }
+.card-desc{ margin:.25rem var(--space-md) var(--space-md); color:var(--muted); }
+.card-actions{ display:flex; gap:var(--space-sm); margin:0 var(--space-md) var(--space-md); }
+
+/* Footer */
+#site-footer{ background:var(--footer-bg); border-top:1px solid var(--border); padding-block:var(--space-md); }
+#site-footer small{ opacity:.9; }
+
+/* Motion preference */
+@media (prefers-reduced-motion: reduce){
+  *{ transition:none !important; animation:none !important; }
+}
+
+/* Responsive extras */
+@media (max-width: 600px){
+  .header-row, .footer-row{ gap:var(--space-sm); flex-wrap:wrap; }
+}

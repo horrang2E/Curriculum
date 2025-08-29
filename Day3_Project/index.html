@@ -1,0 +1,195 @@
+<!doctype html>
+<html lang="ko">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="반응형 카드 레이아웃 실습 (Day3)">
+  <meta name="theme-color" content="#ffffff">
+  <title>Day3 – Responsive Cards</title>
+
+  <meta property="og:title" content="Day3 – Responsive Cards">
+  <meta property="og:description" content="Flex/Grid 심화 + 반응형 + 접근성 + 다크모드">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://example.com/day3">
+  <meta property="twitter:card" content="summary_large_image">
+
+  <link rel="icon" href="favicon.ico" type="image/x-icon">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <a class="skip-link" href="#content">본문으로 건너뛰기</a>
+
+  <header id="site-header">
+    <div class="container header-row">
+      <h1 class="site-title"><a href="index.html">Day3 – Responsive Cards</a></h1>
+
+      <nav aria-label="메인 메뉴">
+        <ul class="nav-list" id="site-nav"> 
+          <li><a href="index.html" aria-current="page">홈</a></li>
+          <li><a href="gallery.html">갤러리</a></li>
+          <li><a href="contact.html">연락</a></li>
+        </ul>
+      </nav>
+
+      <button id="theme-toggle" class="btn" aria-label="다크모드로 전환" type="button">🌛 Dark Mode</button>
+    </div>
+  </header>
+
+  <main id="content" class="container">
+    <article aria-labelledby="page-title">
+      <header class="article-header">
+        <h2 id="page-title">반응형 카드 레이아웃 (Flex + Grid)</h2>
+        <p class="muted">모바일 1열 → 태블릿 2열 → 데스크탑 3열로 자동 변경됩니다.</p>
+
+        <!-- Day2 복습: 버튼 그룹(Flex), 접근성 라벨 -->
+        <nav class="actions" aria-label="카드 필터">
+          <button class="btn btn-filter" data-filter="all" aria-pressed="true">전체</button>
+          <button class="btn btn-filter" data-filter="ui">UI</button>
+          <button class="btn btn-filter" data-filter="ux">UX</button>
+          <button class="btn btn-filter" data-filter="code">Code</button>
+        </nav>
+      </header>
+
+      <!-- Day1/2 복습 포함: 시맨틱 + 접근성 + 변수 기반 -->
+      <section aria-labelledby="cards-title">
+        <h3 id="cards-title" class="sr-only">카드 목록</h3>
+
+        <ul class="card-grid" id="card-grid">
+          <!-- 샘플 카드 9개 -->
+          <li class="card" data-tags="ui">
+            <figure>
+              <img src="https://picsum.photos/seed/ui1/600/400" alt="UI 샘플 이미지 1">
+              <figcaption>UI 스타일 가이드</figcaption>
+            </figure>
+            <h4 class="card-title">UI Design</h4>
+            <p class="card-desc">버튼/폼/색상 토큰을 활용한 일관성 있는 UI 설계.</p>
+            <div class="card-actions">
+              <a class="btn btn-secondary" href="#" aria-label="UI Design 자세히 보기">자세히</a>
+              <button class="btn btn-primary" type="button" aria-label="UI Design 데모 실행">데모</button>
+            </div>
+          </li>
+
+          <li class="card" data-tags="ux">
+            <figure>
+              <img src="https://picsum.photos/seed/ux1/600/400" alt="UX 샘플 이미지 1">
+              <figcaption>UX 사용자 흐름</figcaption>
+            </figure>
+            <h4 class="card-title">User Flow</h4>
+            <p class="card-desc">온보딩부터 결제까지 이탈을 줄이는 플로우 설계.</p>
+            <div class="card-actions">
+              <a class="btn btn-secondary" href="#" aria-label="User Flow 자세히 보기">자세히</a>
+              <button class="btn btn-primary" type="button" aria-label="User Flow 데모 실행">데모</button>
+            </div>
+          </li>
+
+          <li class="card" data-tags="code">
+            <figure>
+              <img src="https://picsum.photos/seed/code1/600/400" alt="코드 샘플 이미지 1">
+              <figcaption>컴포넌트 아키텍처</figcaption>
+            </figure>
+            <h4 class="card-title">Component</h4>
+            <p class="card-desc">토큰 드리븐 스타일과 컴포넌트 분해 전략.</p>
+            <div class="card-actions">
+              <a class="btn btn-secondary" href="#" aria-label="Component 자세히 보기">자세히</a>
+              <button class="btn btn-primary" type="button" aria-label="Component 데모 실행">데모</button>
+            </div>
+          </li>
+
+          <li class="card" data-tags="ui">
+            <figure>
+              <img src="https://picsum.photos/seed/ui2/600/400" alt="UI 샘플 이미지 2">
+              <figcaption>타이포그래피 시스템</figcaption>
+            </figure>
+            <h4 class="card-title">Typography</h4>
+            <p class="card-desc">계층적 스케일과 리듬, 가독성 개선.</p>
+            <div class="card-actions">
+              <a class="btn btn-secondary" href="#" aria-label="Typography 자세히 보기">자세히</a>
+              <button class="btn btn-primary" type="button" aria-label="Typography 데모 실행">데모</button>
+            </div>
+          </li>
+
+          <li class="card" data-tags="ux">
+            <figure>
+              <img src="https://picsum.photos/seed/ux2/600/400" alt="UX 샘플 이미지 2">
+              <figcaption>정보 구조</figcaption>
+            </figure>
+            <h4 class="card-title">Information Architecture</h4>
+            <p class="card-desc">내비게이션과 검색성을 높이는 구조 설계.</p>
+            <div class="card-actions">
+              <a class="btn btn-secondary" href="#" aria-label="Information Architecture 자세히 보기">자세히</a>
+              <button class="btn btn-primary" type="button" aria-label="Information Architecture 데모 실행">데모</button>
+            </div>
+          </li>
+
+          <li class="card" data-tags="code">
+            <figure>
+              <img src="https://picsum.photos/seed/code2/600/400" alt="코드 샘플 이미지 2">
+              <figcaption>빌드 파이프라인</figcaption>
+            </figure>
+            <h4 class="card-title">Build</h4>
+            <p class="card-desc">ESLint/Prettier, 번들링, 최적화 베이직.</p>
+            <div class="card-actions">
+              <a class="btn btn-secondary" href="#" aria-label="Build 자세히 보기">자세히</a>
+              <button class="btn btn-primary" type="button" aria-label="Build 데모 실행">데모</button>
+            </div>
+          </li>
+
+          <li class="card" data-tags="ui">
+            <figure>
+              <img src="https://picsum.photos/seed/ui3/600/400" alt="UI 샘플 이미지 3">
+              <figcaption>상태 색 시스템</figcaption>
+            </figure>
+            <h4 class="card-title">States</h4>
+            <p class="card-desc">Success/Warning/Error 토큰화.</p>
+            <div class="card-actions">
+              <a class="btn btn-secondary" href="#" aria-label="States 자세히 보기">자세히</a>
+              <button class="btn btn-primary" type="button" aria-label="States 데모 실행">데모</button>
+            </div>
+          </li>
+
+          <li class="card" data-tags="ux">
+            <figure>
+              <img src="https://picsum.photos/seed/ux3/600/400" alt="UX 샘플 이미지 3">
+              <figcaption>사용성 테스트</figcaption>
+            </figure>
+            <h4 class="card-title">Usability</h4>
+            <p class="card-desc">테스트 시나리오와 정량 지표 설계.</p>
+            <div class="card-actions">
+              <a class="btn btn-secondary" href="#" aria-label="Usability 자세히 보기">자세히</a>
+              <button class="btn btn-primary" type="button" aria-label="Usability 데모 실행">데모</button>
+            </div>
+          </li>
+
+          <li class="card" data-tags="code">
+            <figure>
+              <img src="https://picsum.photos/seed/code3/600/400" alt="코드 샘플 이미지 3">
+              <figcaption>접근성 자동화 검사</figcaption>
+            </figure>
+            <h4 class="card-title">A11y Audit</h4>
+            <p class="card-desc">명암비/키보드 탐색/aria 속성 점검 방법.</p>
+            <div class="card-actions">
+              <a class="btn btn-secondary" href="#" aria-label="A11y Audit 자세히 보기">자세히</a>
+              <button class="btn btn-primary" type="button" aria-label="A11y Audit 데모 실행">데모</button>
+            </div>
+          </li>
+        </ul>
+      </section>
+    </article>
+  </main>
+
+  <footer id="site-footer">
+    <div class="container footer-row">
+      <h2 class="site-title"><a href="index.html">Day3 – Responsive Cards</a></h2>
+      <nav aria-label="푸터">
+        <ul class="nav-list">
+          <li><a href="privacy.html">개인정보</a></li>
+          <li><a href="terms.html">이용약관</a></li>
+        </ul>
+      </nav>
+      <small>&copy; <time datetime="2025-08-25">2025</time> Day3 Example</small>
+    </div>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>

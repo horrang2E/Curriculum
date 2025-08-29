@@ -53,18 +53,18 @@
 
         <section aria-labelledby="bullet-points">
             <h3 id="bullet-points">핵심 포인트</h3>
-            <ul>
-                <li>Flex 레이아웃으로 헤더/내비 가로 정렬</li>
-                <li>CSS 변수로 색상/스페이싱 관리</li>
-                <li>다크모드 상태 저장(localStorage)</li>
-                <li>접근성 (skip-link, aria, 명암비)</li>
-                <li>반응형 (600px 기준)</li>
+            <ul class="features__grid">
+                <li><strong>Flex 레이아웃</strong>으로 헤더/내비 가로 정렬</li>
+                <li><strong>CSS 변수</strong>로 색상/스페이싱 관리</li>
+                <li><strong>다크모드 상태</strong> 저장(localStorage)</li>
+                <li><strong>접근성</strong> (skip-link, aria, 명암비)</li>
+                <li><strong>반응형</strong> (600px 기준)</li>
             </ul>
         </section>
 
         <aside aria-labelledby="aside-title">
             <h3 id="aside-title">연락</h3>
-            <p>문의: <a herf="mailto:you@example.com">you@example.com</a></p>
+            <p>문의: <a href="mailto:you@example.com">you@example.com</a></p>
         </aside>
 
             <footer class="article-footer">
@@ -74,14 +74,17 @@
     </main>
 
     <footer id="site-footer">
-        <small>&copy; <time datetime="2025-08-21">2025 Day2 Example</time></small>
-        <nav aria-label="푸터">
-            <ul>
-                <li><a href="privacy">보안</a></li>
-                <li><a href="terms">이용약관</a></li>
-            </ul>
-        </nav>
+        <div class="container footer-row">
+            <small>&copy; <time datetime="2025-08-21">2025 Day2 Example</time></small>
+            <nav aria-label="푸터">
+                <ul>
+                    <li><a href="privacy">개인정보</a></li>
+                    <li><a href="terms">이용약관</a></li>
+                </ul>
+            </nav>
+        </div>
     </footer>
+        
     <script src="script.js"></script>
 </body>
 </html>

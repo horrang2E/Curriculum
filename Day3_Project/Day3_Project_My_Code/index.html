@@ -1,0 +1,332 @@
+<!doctype html>
+<html lang="ko">
+<head>
+    <meta charset="utf-8">
+    <meta name="description" content="Responsive Cards Education">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <meta name="theme-color" content="#ffffff">
+    <title>Day3 Project</title>
+
+    <meta property="og:title" content="Responsive Cards">
+    <meta property="og:description" content="Responsive Cards Education">
+    <meta property="og:image" content="https://example.com/image">
+    <meta property="og:url" content="https://example.com">
+    <meta property="og:type" content="website">
+    <meta property="twitter:title" content="Responsive Cards">
+    <meta property="twitter:description" content="Responsive Cards Education">
+    <meta property="twitter:image" content="https://example.com/image">
+    <meta property="twitter:card" content="summary_large_image">
+
+    <link rel="stylesheet" href="style.css">
+    <link rel="icon" href="favicon.ico" type="image/x-icon">
+    <link rel="preload" href="https://example.com/image" type="image/jpeg" as="image">
+</head>
+
+<body>
+<a class="skip-link" href="#content">본문으로 건너뛰기</a>
+<header id="site-header">  <!-- 잘 누락함!!-->
+    <div class="container header-row">  <!-- 잘 틀림!!-->
+        <h1 class="site-title"><a href="index.html">Day3 - Responsive Cards</a></h1>
+        <button id="menu-toggle" class="btn nav-toggle" type="button" aria-label="메뉴 열기" aria-expanded="false" aria-controls="site-nav">
+        ☰ 메뉴  <!-- 잘 틀림!!-->
+        </button>
+
+        <nav aria-label="메인 메뉴">
+            <ul id="site-nav" class="nav-list">  <!-- 잘 틀림!! 특히 class와 id를 잘 누락함. -->
+                <li><a href="#" aria-current="page">홈</a></li>
+                <li><a href="#gallery">갤러리</a></li>
+                <li><a href="#contact">연락</a></li>
+            </ul>
+        </nav>
+        <button id="theme-toggle" class="btn" type="button" aria-label="다크모드로 켜기" aria-pressed="false"> 🌛 Dark Mode   </button>  <!-- 잘 틀림!! 마지막 부분도!!-->
+    </div>
+</header>
+
+<main id="content" class="container">
+    <article aria-labelledby="page-title" class="article-content">
+        <header class="article-header">  <!-- 잘 틀림!! / 누락 이슈 -->
+            <h2 id="page-title">반응형 카드 레이아웃 (Flex + Grid)</h2>
+            <p>모바일 1열 → 태블릿 2열 → 데스크탑 3열로 자동 변경됩니다.</p>
+            
+            <div class="actions" role="group" aria-label="카드 필터">  <!-- 잘 틀림!! / nav 와 혼동 이슈-->
+                <button class="btn btn-filter" type="button" data-filter="all" aria-pressed="true">전체</button>  <!-- 잘 틀림!! / data filter + aria pressed 누락 이슈-->
+                <button class="btn btn-filter" type="button" data-filter="ui" aria-pressed="false">UI</button>  <!-- 잘 틀림!! / class 등 누락 이슈 -->
+                <button class="btn btn-filter" type="button" data-filter="ux" aria-pressed="false">UX</button>  <!-- 잘 틀림!! / class 등 누락 이슈 -->
+                <button class="btn btn-filter" type="button" data-filter="code" aria-pressed="false">Code</button>  <!-- 잘 틀림!! / class 등 누락 이슈 -->
+            </div>
+        </header>
+
+        <section aria-labelledby="cards-heading">
+            <div id="card-status" aria-live="polite" class="sr-only"></div>  <!-- 잘 틀림!! / 누락 이슈 -->
+        <h3 id="cards-heading">카드 목록</h3>  
+        <ul id="card-grid" class="card-grid"> <!-- 잘 틀림!! / 누락 이슈 -->
+            <li class="card" data-tags="ui">  <!-- 잘 틀림!! data tags는 JS에서 필수인데 계속 까먹음!! -->
+            <figure>
+                <img
+                    src="https://picsum.photos/seed/ui1/640/360" 
+                    srcset="
+                    https://picsum.photos/seed/ui1/320/180 320w,
+                    https://picsum.photos/seed/ui1/640/360 640w,
+                    https://picsum.photos/seed/ui1/960/540 960w  
+                    "
+                    sizes="(max-width: 600px) 100vw, 640px"
+                    width="640" height="360"
+                    alt="일러스트레이션"
+                    loading="lazy" decoding="async"  
+                >
+                <figcaption>UI 스타일 가이드</figcaption>
+            </figure>
+                <div class="card-content">
+                    <h3 id="card-1" class="card-title">UI Design</h3>
+                    <p>버튼/폼/색상 토큰을 활용한 일관성 있는 UI설계.</p>
+                    <div class="card-actions">  <!-- 잘 틀림!! 특히 이 부분을 그냥 누락해버림! -->
+                        <button class="btn detailed-btn" type="button" aria-label="UI Design 자세히 보기">자세히</button> <!-- 잘 틀림!! aria-label 누락!! -->
+                        <button class="btn demo-btn" type="button" aria-label="UI Design 데모 실행">데모</button> <!-- 잘 틀림!! aria-label 누락!! -->
+                    </div>
+                </div>
+            </li>
+
+            <li class="card" data-tags="ux">  <!-- 잘 틀림!! 특히 이 부분을 그냥 누락해버림! -->
+            <figure>
+                <img
+                    src="https://picsum.photos/seed/ux1/640/360"
+                    srcset="
+                    https://picsum.photos/seed/ux1/320/180 320w,
+                    https://picsum.photos/seed/ux1/640/360 640w,
+                    https://picsum.photos/seed/ux1/960/540 960w
+                    "
+                    sizes="(max-width: 600px) 100vw, 640px"
+                    width="640" height="360"
+                    alt="일러스트레이션"
+                    loading="lazy" decoding="async" 
+                >
+                <figcaption>UX 사용자 흐름</figcaption>
+            </figure>
+                <div class="card-content">    
+                    <h3 id="card-2" class="card-title">User Flow</h3>
+                    <p>온보딩부터 결제까지 이탈을 줄이는 플로우 설계.</p>
+                    <div class="card-actions">  <!-- 잘 틀림!! 특히 이 부분을 그냥 누락해버림! -->
+                        <button class="btn detailed-btn" type="button" aria-label="UX Design 자세히 보기">자세히</button>
+                        <button class="btn demo-btn" type="button" aria-label="UX Design 데모 실행">데모</button>
+                    </div>
+                </div>
+            </li>
+
+            <li class="card" data-tags="code">  <!-- 잘 틀림!! 특히 이 부분을 그냥 누락해버림! -->
+            <figure>
+                <img
+                    src="https://picsum.photos/seed/code1/640/360"
+                    srcset="
+                    https://picsum.photos/seed/code1/320/180 320w,
+                    https://picsum.photos/seed/code1/640/360 640w,
+                    https://picsum.photos/seed/code1/960/540 960w
+                    "
+                    sizes="(max-width: 600px) 100vw, 640px"
+                    width="640" height="360"
+                    alt="일러스트레이션"
+                    loading="lazy" decoding="async" 
+                >
+                <figcaption>컴포넌트 아키텍처</figcaption>
+            </figure>
+                <div class="card-content">  
+                    <h3 id="card-3" class="card-title">Component</h3>
+                    <p>토큰 드리븐 스타일과 컴포넌트 분해 전략.</p>
+                    <div class="card-actions">  <!-- 잘 틀림!! 특히 이 부분을 그냥 누락해버림! -->
+                        <button class="btn detailed-btn" type="button" aria-label="Code Design 자세히 보기">자세히</button> <!-- 잘 틀림!! aria-label 누락!! -->
+                        <button class="btn demo-btn" type="button" aria-label="Code Design 데모 실행">데모</button> <!-- 잘 틀림!! aria-label 누락!! -->
+                    </div>
+                </div>
+            </li>
+         
+            <li class="card" data-tags="ui">  <!-- 잘 틀림!! 특히 이 부분을 그냥 누락해버림! -->
+            <figure>
+                <img
+                    src="https://picsum.photos/seed/ui2/640/360"
+                    srcset="
+                    https://picsum.photos/seed/ui2/320/180 320w,
+                    https://picsum.photos/seed/ui2/640/360 640w,
+                    https://picsum.photos/seed/ui2/960/540 960w
+                    "
+                    sizes="(max-width: 600px) 100vw, 640px"
+                    width="640" height="360"
+                    alt="일러스트레이션"
+                    loading="lazy" decoding="async" 
+                >
+                <figcaption>타이포그래피 시스템</figcaption>
+            </figure>
+                <div class="card-content">    
+                    <h3 id="card-4" class="card-title">Typography</h3>
+                    <p>계층적 스케일과 리듬, 가독성 개선.</p>
+                    <div class="card-actions">  <!-- 잘 틀림!! 특히 이 부분을 그냥 누락해버림! -->
+                        <button class="btn detailed-btn" type="button" aria-label="UI Design 자세히 보기">자세히</button> <!-- 잘 틀림!! aria-label 누락!! -->
+                        <button class="btn demo-btn" type="button" aria-label="UI Design 데모 실행">데모</button> <!-- 잘 틀림!! aria-label 누락!! -->
+                    </div>
+                </div>
+            </li>
+
+            <li class="card" data-tags="ux">  <!-- 잘 틀림!! 특히 이 부분을 그냥 누락해버림! -->
+            <figure>
+                    <img
+                        src="https://picsum.photos/seed/ux2/640/360"
+                        srcset="
+                        https://picsum.photos/seed/ux2/320/180 320w,
+                        https://picsum.photos/seed/ux2/640/360 640w,
+                        https://picsum.photos/seed/ux2/960/540 960w
+                        "
+                        sizes="(max-width: 600px) 100vw, 640px"
+                        width="640" height="360"
+                        alt="일러스트레이션"
+                        loading="lazy" decoding="async" 
+                    >
+                <figcaption>정보 구조</figcaption>
+            </figure>
+                <div class="card-content">    
+                    <h3 id="card-5" class="card-title">Information Architecture</h3>
+                    <p>내비게이션과 검색성을 높이는 구조 설계.</p>
+                    <div class="card-actions">  <!-- 잘 틀림!! 특히 이 부분을 그냥 누락해버림! -->
+                        <button class="btn detailed-btn" type="button" aria-label="UX Design 자세히 보기">자세히</button>
+                        <button class="btn demo-btn" type="button" aria-label="UX Design 데모 실행">데모</button>
+                    </div>
+                </div>
+            </li>
+
+            <li class="card" data-tags="code">  <!-- 잘 틀림!! 특히 이 부분을 그냥 누락해버림! -->
+            <figure>
+                    <img
+                        src="https://picsum.photos/seed/code2/640/360"
+                        srcset="
+                        https://picsum.photos/seed/code2/320/180 320w,
+                        https://picsum.photos/seed/code2/640/360 640w,
+                        https://picsum.photos/seed/code2/960/540 960w
+                        "
+                        sizes="(max-width: 600px) 100vw, 640px"
+                        width="640" height="360"
+                        alt="일러스트레이션"
+                        loading="lazy" decoding="async" 
+                    >
+                <figcaption>빌드 파이프라인</figcaption>
+            </figure>
+                <div class="card-content">
+                    <h3 id="card-6" class="card-title">Build</h3>
+                    <p>ESLint/Prettier, 번들링, 최적화 베이직.</p>
+                    <div class="card-actions">  <!-- 잘 틀림!! 특히 이 부분을 그냥 누락해버림! -->
+                        <button class="btn detailed-btn" type="button" aria-label="Code Design 자세히 보기">자세히</button>
+                        <button class="btn demo-btn" type="button" aria-label="Code Design 데모 실행">데모</button>
+                    </div>
+                </div>
+            </li>
+          
+            <li class="card" data-tags="ui">  <!-- 잘 틀림!! 특히 이 부분을 그냥 누락해버림! -->
+            <figure>
+                <img
+                    src="https://picsum.photos/seed/ui3/640/360"
+                    srcset="
+                    https://picsum.photos/seed/ui3/320/180 320w,
+                    https://picsum.photos/seed/ui3/640/360 640w,
+                    https://picsum.photos/seed/ui3/960/540 960w
+                    "
+                    sizes="(max-width: 600px) 100vw, 640px"
+                    width="640" height="360"
+                    alt="일러스트레이션"
+                    loading="lazy" decoding="async" 
+                >
+                <figcaption>상태 색 시스템</figcaption>
+            </figure>
+                <div class="card-content">    
+                    <h3 id="card-7" class="card-title">States</h3>
+                    <p>Success/Warning/Error 토큰화.</p>
+                    <div class="card-actions">  <!-- 잘 틀림!! 특히 이 부분을 그냥 누락해버림! -->
+                        <button class="btn detailed-btn" type="button" aria-label="UI Design 자세히 보기">자세히</button>
+                        <button class="btn demo-btn" type="button" aria-label="UI Design 데모 실행">데모</button>
+                    </div>
+                </div>
+            </li>
+
+            <li class="card" data-tags="ux">  <!-- 잘 틀림!! 특히 이 부분을 그냥 누락해버림! -->
+            <figure>
+                <img
+                    src="https://picsum.photos/seed/ux3/640/360"
+                    srcset="
+                    https://picsum.photos/seed/ux3/320/180 320w,
+                    https://picsum.photos/seed/ux3/640/360 640w,
+                    https://picsum.photos/seed/ux3/960/540 960w
+                    "
+                    sizes="(max-width: 600px) 100vw, 640px"
+                    width="640" height="360"
+                    alt="일러스트레이션"
+                    loading="lazy" decoding="async" 
+                >
+                <figcaption>사용성 테스트</figcaption>
+            </figure>
+                <div class="card-content">
+                    <h3 id="card-8" class="card-title">Usability</h3>
+                    <p>테스트 시나리오와 정량 지표 설계.</p>
+                    <div class="card-actions">  <!-- 잘 틀림!! 특히 이 부분을 그냥 누락해버림! -->
+                        <button class="btn detailed-btn" type="button" aria-label="UX Design 자세히 보기">자세히</button>
+                        <button class="btn demo-btn" type="button" aria-label="UX Design 데모 실행">데모</button>
+                    </div>
+                </div>
+            </li>
+
+            <li class="card" data-tags="code">  <!-- 잘 틀림!! 특히 이 부분을 그냥 누락해버림! -->
+            <figure>
+                <img
+                    src="https://picsum.photos/seed/code3/640/360"
+                    srcset="
+                    https://picsum.photos/seed/code3/320/180 320w,
+                    https://picsum.photos/seed/code3/640/360 640w,
+                    https://picsum.photos/seed/code3/960/540 960w
+                    "
+                    sizes="(max-width: 600px) 100vw, 640px"
+                    width="640" height="360"
+                    alt="일러스트레이션"
+                    loading="lazy" decoding="async" 
+                >
+                <figcaption>접근성 자동화 검사</figcaption>
+            </figure>
+                <div class="card-content">    
+                <h3 id="card-9" class="card-title">A11y Audit</h3>
+                    <p>명암비/키보드 탐색/aria 속성 점검 방법.</p>
+                    <div class="card-actions">  <!-- 잘 틀림!! 특히 이 부분을 그냥 누락해버림! -->
+                        <button class="btn detailed-btn" type="button" aria-label="Code Design 자세히 보기">자세히</button>
+                        <button class="btn demo-btn" type="button" aria-label="Code Design 데모 실행">데모</button>
+                    </div>
+                </div>
+            </li>
+        </ul>
+        </section>
+    </article>
+
+    <aside aria-labelledby="ref-title">
+        <div class="container ref-title">
+            <h3 id="ref-title">참고</h3>
+            <nav aria-label="관련 문서">
+                <ul>
+                    <li><a href="#">관련문서 A</a></li> 
+                    <li><a href="#">관련문서 B</a></li> 
+                </ul>
+            </nav>
+        </div>
+    </aside>    
+    
+    <footer class="aside-footer">
+    <p>태그: <a href="#">접근성</a> <a href="#">시맨틱</a></p>
+    </footer>
+</main>
+
+    <footer id="site-footer">
+        <div class="container footer-row">
+            <p class="footer-title"><a href="index.html">Day3 – Responsive Cards</a></p> <!-- 잘 틀림!! p class 에 덜 익숙함 -->
+            <nav aria-label="푸터">
+                <ul class="nav-list">
+                    <li><a href="#privacy">개인정보</a></li>
+                    <li><a href="#terms">이용약관</a></li>
+                </ul>
+            </nav>
+        <small>&copy; <time datetime="2025-08-25">2025 </time>Day3 Example</small>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>

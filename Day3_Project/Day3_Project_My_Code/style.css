@@ -1,0 +1,271 @@
+@layer tokens{
+:root {
+  --bg: #ffffff;
+  --fg: #222222;
+  --muted: #666666;
+  --border: #dddddd;
+
+  --header-bg: #f8f8f8;
+  --footer-bg: #f8f8f8;
+
+  --link:#2563eb;
+  --focus:#3b82f6;
+  
+  --container-max: 1200px;
+  --space-1: 4px;
+  --space-2: 8px;
+  --space-3: 12px;
+  --space-4: 16px;
+  --space-6: 24px;
+  --space-8: 32px;
+  --radius: 12px;
+  
+  --font-base:1rem; --font-lg:1.125rem; --font-xl:clamp(1.25rem, 1rem + 1vw, 1.75rem);
+  --font-family:"Noto Sans KR", system-ui, -apple-system, Segoe UI, Roboto, sans-serif;
+
+  --gap-2: 0.5rem;
+  --gap-4: 1rem;
+  --shadow-sm: 0 1px 2px rgba(0,0,0,.06);
+  --surface-2: #f8f9fb;
+}
+body.dark {
+  --bg: #1f2937;
+  --fg: #f9fafb;
+  --muted: #9ca3af;
+  --border: #374151;
+
+  --header-bg: #111827;
+  --footer-bg: #000000;
+
+  --link: #60a5fa;
+  --focus: #3b82f6;
+}}
+
+@layer reset{
+*,*::before,*::after{ box-sizing:border-box; }
+html { line-height: 1.5; -webkit-text-size-adjust: 100%; }
+body { margin:0; background:var(--bg); color:var(--fg); font-family:var(--font-family); font-size:var(--font-base);}
+img{ display:block; max-width:100%; height:auto; }
+[hidden]{ display:none !important; }
+}
+
+@layer base{
+.container {
+  max-width: var(--container-max);
+  margin-inline: auto;
+  padding-inline: clamp(1rem, 4vw, 2rem); 
+}
+:focus-visible{ outline:3px solid var(--focus); outline-offset:2px; }
+a{color: var(--link); }
+
+/* Motion preference */
+@media (prefers-reduced-motion: reduce){
+  *{ transition:none !important; animation:none !important; }
+}}
+
+@layer layout{
+#site-header{ 
+  background:var(--header-bg); 
+  border-bottom:1px solid var(--border); 
+}
+.header-row, .footer-row{ 
+  display:flex; 
+  align-items:center; 
+  justify-content:space-between; 
+  gap:var(--gap-4); 
+}
+main{ padding-block: 2rem; }
+aside {
+  background: #f0f0f0;
+  padding: 1rem;
+  margin-top: 2rem;
+  border-radius: .5rem;
+}
+#site-footer{ 
+  background:var(--footer-bg); 
+  border-top:1px solid var(--border); 
+  padding-block: 0.75rem; 
+}
+#site-footer .footer-title{
+  margin: 0;
+  font-weight: 700;
+  font-size:var(--font-xl); 
+  line-height: 1.2;
+}
+#site-footer .footer-title a{
+  color: var(--fg); 
+  text-decoration: none;
+}
+#site-footer .footer-title a:hover,
+#site-footer .footer-title a:focus-visible{
+  text-decoration: none;
+}
+#site-footer small{ opacity:.9; }
+
+/* Responsive extras */
+@media (max-width: 600px){
+  .header-row, .footer-row{ gap: 0.5rem; flex-wrap:wrap; }
+}}
+
+@layer components{
+.skip-link {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  margin: -1px;
+  padding: 0;
+  overflow: hidden;
+  clip: rect(0 0 0 0);
+  clip-path: inset(50%);
+  white-space: nowrap;
+  border: 0;
+
+  /* 나타났을 때의 시각 스타일(미리 정의) */
+  --sl-pad-y: var(--space-2);  
+  --sl-pad-x: var(--space-4);  
+  --sl-gap:   var(--space-4);  
+  --sl-bg: #000;
+  --sl-fg: #fff;
+  --sl-radius: 8px;
+}
+
+.skip-link:focus-visible {
+  position: fixed;
+  inset: auto auto auto auto; /* 초기화용 */
+  clip: auto;
+  clip-path: none;
+  width: auto;
+  height: auto;
+  margin: 0;
+  overflow: visible;
+  white-space: normal;
+
+  /* 화면 좌상단에 또렷이 표시 */
+  top: var(--sl-gap);
+  left: var(--sl-gap);
+  z-index: 1000;
+
+  /* 보기 좋은 버튼 스타일 */
+  padding: var(--sl-pad-y) var(--sl-pad-x);
+  background: var(--sl-bg);
+  color: var(--sl-fg);
+  border-radius: var(--sl-radius);
+  outline: 3px solid var(--focus);
+  outline-offset: 2px;
+  box-shadow: 0 2px 8px rgba(0,0,0,.25);
+}
+
+.site-title{ margin:0; font-size:var(--font-xl); }
+.site-title a{ color:inherit; text-decoration:none; }
+
+.article-content a {
+  text-decoration: underline;
+  text-underline-offset: 3px;
+  text-decoration-thickness: 2px;
+}
+.article-content a:hover,
+.article-content a:focus-visible {
+  text-decoration: underline;
+}
+
+/* Buttons */
+.btn{
+  padding:.5rem .75rem; border:1px solid var(--border); 
+  border-radius:var(--radius); background:transparent; color:inherit; cursor:pointer;
+}
+
+.btn:hover{ background:rgba(0,0,0,.04); }
+.btn-primary{ background:var(--focus); color:#fff; border:none; }
+.btn-primary:hover{ filter:brightness(.95); }
+.btn-secondary{ background:transparent; }
+
+.nav-list{ display:flex; gap: 1rem; list-style:none; padding:0; margin:0; }
+.nav-list a { text-decoration: none; }
+.nav-list a:hover,
+.nav-list a:focus-visible {text-decoration: underline; }
+.nav-list a[aria-current="page"]{ font-weight:700; text-decoration:underline; }
+
+/* Card */
+.card{
+  background: var(--surface-2);
+  border:1px solid var(--border);
+  border-radius:var(--radius);
+  overflow:hidden;
+  display:flex;               
+  flex-direction:column;
+  height:100%;                 
+  box-shadow: var(--shadow-sm);
+}
+.card-grid{
+  display:grid; gap: var(--gap-4);
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  padding:0; list-style:none; margin:0;
+}
+.card figure{ margin:0; }
+.card img{ aspect-ratio:3/2; object-fit:cover; width:100%; }
+.card-content {
+  display:flex;
+  flex-direction:column;
+  gap:.75rem;
+  padding: 0 var(--space-4) var(--space-4);
+  flex:1;
+}
+.card-title{ margin:1rem 0 0; font-size:var(--font-lg); margin-block-end: 0rem;}
+.card-content > p{ 
+  margin:0;
+  line-height:1.5;
+}
+.card-actions{ 
+  display:flex;
+  gap:.5rem;
+  margin-top:auto;
+}
+.detailed-btn:hover,
+.detailed-btn:focus-visible {
+  text-decoration: underline;
+  text-underline-offset: 3px;
+}
+
+.demo-btn {
+  background: #2563eb;
+  color:#fff
+}
+.demo-btn:hover,
+.demo-btn:focus-visible {
+  background: #e5e7eb; 
+  color: #444;     
+  filter: brightness(0.95)    
+}
+
+aside a {
+  text-decoration: none;
+}
+aside a:hover,
+aside a:focus-visible {
+  text-decoration: underline;
+  text-underline-offset: 3px;
+}
+
+.aside-footer a {
+  text-decoration: none;
+}
+.aside-footer a:hover,
+.aside-footer a:focus-visible {
+  text-decoration: underline;
+  text-underline-offset: 3px;
+}
+
+/* 모션 민감 사용자 배려 */
+@media (prefers-reduced-motion: no-preference) {
+  .skip-link:focus-visible { transition: transform .12s ease; }
+  .skip-link:focus-visible:active { transform: translateY(1px); }
+}}
+
+@layer Utilities{
+.sr-only{
+  position:absolute;width:1px;height:1px;margin:-1px;padding:0;overflow:hidden;
+  clip:rect(0 0 0 0);clip-path:inset(50%);white-space:nowrap;border:0;
+}
+.muted{ color:var(--muted); }
+.actions{ display:flex; gap: 0.5rem; margin-top: 1rem; flex-wrap:wrap; }
+}
