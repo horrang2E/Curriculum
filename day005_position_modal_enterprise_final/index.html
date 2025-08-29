@@ -1,0 +1,136 @@
+<!doctype html>
+<html lang="ko" data-theme="light">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>PJT.LUNA Day5 ENTERPRISE+ — Position & Modal (FINAL)</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <a href="#main" class="skip-link" data-i18n="skip">본문으로 건너뛰기</a>
+
+  <header class="site-header">
+    <div class="container header">
+      <a class="logo" href="#">LUNA<span>Enterprise+</span></a>
+      <nav class="site-nav" aria-label="주요">
+        <ul>
+          <li><a href="#" aria-current="page" data-i18n="nav.home">홈</a></li>
+          <li><a href="#" data-i18n="nav.docs">문서</a></li>
+        </ul>
+      </nav>
+      <div class="actions">
+        <select id="lang" aria-label="언어 선택">
+          <option value="ko">한국어</option>
+          <option value="en">English</option>
+        </select>
+        <button id="theme-toggle" class="btn btn-ghost" aria-pressed="false" aria-label="다크 모드 전환">🌓</button>
+      </div>
+    </div>
+  </header>
+
+  <main id="main" class="container layout">
+    <section class="hero">
+      <h1 data-i18n="hero.title">Position & Modal — 모든 키워드 가시화</h1>
+      <p class="lead" data-i18n="hero.lead">relative / absolute / fixed / sticky (뷰포트 & 컨테이너) + z-index 개념을 한 화면에서 비교</p>
+    </section>
+
+    <!-- 1. Position Overview -->
+    <section class="grid-demo" aria-labelledby="grid-title">
+      <h2 id="grid-title" data-i18n="pos.grid.title">한눈에 보는 포지셔닝</h2>
+      <div class="grid">
+        <!-- RELATIVE -->
+        <article class="card" aria-labelledby="rel-title">
+          <h3 id="rel-title">relative</h3>
+          <div class="relative-demo">
+            <div class="rel base">기본 박스</div>
+            <div class="rel offset">top:8 / left:12</div>
+          </div>
+          <p class="note" data-i18n="pos.relative.note">자기 자신 기준으로 약간 이동; 문서 흐름은 유지.</p>
+        </article>
+
+        <!-- ABSOLUTE -->
+        <article class="card" aria-labelledby="abs-title">
+          <h3 id="abs-title">absolute</h3>
+          <div class="abs-wrapper">
+            <div class="abs target">absolute: top:10 / right:10</div>
+          </div>
+          <p class="note" data-i18n="pos.absolute.note">가장 가까운 위치 지정 조상(relative 등)을 기준으로 배치.</p>
+        </article>
+
+        <!-- FIXED -->
+        <article class="card" aria-labelledby="fix-title">
+          <h3 id="fix-title">fixed</h3>
+          <p class="note" data-i18n="pos.fixed.note">뷰포트 기준으로 항상 같은 자리(우하단). 스크롤과 무관.</p>
+        </article>
+
+        <!-- STICKY (VIEWPORT) -->
+        <article class="card" aria-labelledby="stk-vp-title">
+          <h3 id="stk-vp-title">sticky (viewport)</h3>
+          <p class="note" data-i18n="pos.sticky.vp.note">문서 스크롤에서 상단에 닿으면 고정(top:0).</p>
+        </article>
+      </div>
+    </section>
+
+    <!-- Viewport Sticky -->
+    <div class="viewport-sticky" role="note">sticky(top:0) — viewport 기준</div>
+
+    <!-- 2. Container Sticky -->
+    <section class="sticky-container" aria-labelledby="stk-box-title">
+      <h2 id="stk-box-title" data-i18n="pos.sticky.box.title">컨테이너 내부 sticky</h2>
+      <div class="sticky-wrapper">
+        <div class="sticky-box">sticky — 이 상자(scroll 박스) 안에서만 상단에 붙음</div>
+        <div class="filler">스크롤해 보세요<br>...</div>
+        <div class="filler">더 많은 내용<br>...</div>
+        <div class="filler">끝까지 스크롤<br>...</div>
+      </div>
+      <p class="note" data-i18n="pos.sticky.box.note">부모 스크롤 박스의 상단에 달라붙고, 부모 끝에서 풀림.</p>
+    </section>
+
+    <!-- 3. Stacking context quick lab -->
+    <section class="stacking" aria-labelledby="stack-title">
+      <h2 id="stack-title" data-i18n="pos.stack.title">z-index & 스택 컨텍스트</h2>
+      <div class="stack-lab">
+        <div class="layer base">Base</div>
+        <div class="layer ctx">transform ctx</div>
+        <div class="layer above">z-index:10</div>
+      </div>
+      <p class="note" data-i18n="pos.stack.note">transform/opacity 등은 새 스택 컨텍스트 생성 → 같은 컨텍스트 내에서 z-index 비교.</p>
+    </section>
+
+    <!-- 4. Modal quick demo (접근성 완비) -->
+    <section class="modal-demo" aria-labelledby="modal-title">
+      <h2 id="modal-title" data-i18n="modal.title">모달 (접근성)</h2>
+      <button id="open-modal" class="btn" data-i18n="modal.open">모달 열기</button>
+    </section>
+  </main>
+
+  <!-- Fixed badge (always visible) -->
+  <div class="fixed-badge" aria-hidden="true">fixed<br>bottom-right</div>
+
+  <!-- Accessible Modal -->
+  <div id="modal" class="modal" role="dialog" aria-modal="true" aria-labelledby="m-title" hidden>
+    <div class="backdrop" data-close></div>
+    <div class="dialog" role="document">
+      <header class="dialog-header">
+        <h3 id="m-title" data-i18n="modal.title">모달</h3>
+        <button id="close-modal" class="btn" aria-label="닫기">✕</button>
+      </header>
+      <div class="dialog-body">
+        <label>이름 <input type="text" placeholder="포커스 테스트"></label>
+        <p class="note" data-i18n="modal.body">포커스 트랩 · ESC 닫기 · 배경 aria-hidden.</p>
+      </div>
+      <footer class="dialog-footer">
+        <button id="ok-modal" class="btn" data-i18n="modal.ok">확인</button>
+      </footer>
+    </div>
+  </div>
+
+  <footer class="site-footer" role="contentinfo">
+    <div class="container">
+      <small>© 2025 LUNA Web</small>
+    </div>
+  </footer>
+
+  <script type="module" src="script.js"></script>
+</body>
+</html>

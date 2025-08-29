@@ -1,0 +1,20 @@
+{
+  "skip": "Skip to main content",
+  "nav.home": "Home",
+  "nav.docs": "Docs",
+  "hero.title": "Position & Modal — visualize all keywords",
+  "hero.lead": "Compare relative/absolute/fixed/sticky (viewport & container) + z-index on one page",
+  "pos.grid.title": "Positioning at a glance",
+  "pos.relative.note": "Moves relative to itself; remains in flow.",
+  "pos.absolute.note": "Positions against nearest positioned ancestor.",
+  "pos.fixed.note": "Pinned to the viewport (bottom-right here).",
+  "pos.sticky.vp.note": "Sticks to top when hitting top:0 during scroll.",
+  "pos.sticky.box.title": "Sticky inside a scrolling container",
+  "pos.sticky.box.note": "Sticks to the container top and releases at the end.",
+  "pos.stack.title": "z-index & stacking contexts",
+  "pos.stack.note": "transform/opacity create a new stacking context; compare z-index within it.",
+  "modal.title": "Modal (a11y)",
+  "modal.open": "Open modal",
+  "modal.body": "Focus trap, ESC to close, aria-hidden background.",
+  "modal.ok": "OK"
+}

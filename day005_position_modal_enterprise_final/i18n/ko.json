@@ -1,0 +1,20 @@
+{
+  "skip": "본문으로 건너뛰기",
+  "nav.home": "홈",
+  "nav.docs": "문서",
+  "hero.title": "Position & Modal — 모든 키워드 가시화",
+  "hero.lead": "relative / absolute / fixed / sticky (뷰포트 & 컨테이너) + z-index 비교",
+  "pos.grid.title": "한눈에 보는 포지셔닝",
+  "pos.relative.note": "자기 자신 기준으로 약간 이동; 문서 흐름은 유지.",
+  "pos.absolute.note": "가장 가까운 위치 지정 조상을 기준으로 배치.",
+  "pos.fixed.note": "뷰포트 기준으로 항상 같은 자리(우하단). 스크롤과 무관.",
+  "pos.sticky.vp.note": "문서 스크롤에서 상단에 닿으면 고정(top:0).",
+  "pos.sticky.box.title": "컨테이너 내부 sticky",
+  "pos.sticky.box.note": "부모 스크롤 박스 상단에 붙었다가, 부모가 끝나면 풀림.",
+  "pos.stack.title": "z-index & 스택 컨텍스트",
+  "pos.stack.note": "transform/opacity 등은 새 스택 컨텍스트 생성 → 같은 컨텍스트 내에서 z-index 비교.",
+  "modal.title": "모달(접근성)",
+  "modal.open": "모달 열기",
+  "modal.body": "포커스 트랩 · ESC 닫기 · 배경 aria-hidden.",
+  "modal.ok": "확인"
+}
