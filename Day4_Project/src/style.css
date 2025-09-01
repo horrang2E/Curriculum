@@ -196,7 +196,10 @@ color:#ffffff
 .nav-list a { text-decoration: none; }
 .nav-list a:hover,
 .nav-list a:focus-visible {text-decoration: underline; }
-.nav-list a[aria-current="page"]{ font-weight:700; text-decoration:underline; }
+.nav-list a[aria-current="page"]
+{ font-weight:700; text-decoration:none; }
+.nav-list a[aria-current="page"]:hover,
+.nav-list a:focus-visible {text-decoration: underline; }
 
 /* Card */
 .card{

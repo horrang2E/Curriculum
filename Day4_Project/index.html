@@ -22,16 +22,16 @@
 </head>  
 
 <body>
-  <a class="skip-link" a href="content" data-i18n="skip">본문으로 건너뛰기</a>
+  <a class="skip-link" a href="content" >본문으로 건너뛰기</a>
   <header id="site-header">
     <div class="container header-row">
       <h1 class="site-title"><a href="#">LUNA<span>Enterprise</span></a></h1>
       <button id="menu-toggle" class="btn nav-toggle" type="button" aria-label="메뉴열기" aria-expanded="false" aria-controls="">☰ 메뉴</button>
       <nav aria-label="메인 메뉴">
         <ul id="site-nav" class="nav-list">
-          <li><a href="#" aria-current="page">회원가입</a></li>
-          <li><a href="#">요금제</a></li>
-          <li><a href="#">문서</a></li>
+          <li><a href="#" aria-current="page" >회원가입</a></li>
+          <li><a href="#" >요금제</a></li>
+          <li><a href="#" >문서</a></li>
         </ul>
       </nav>
       <div class="header-actions">
@@ -47,50 +47,50 @@
         
   <main id="content" class="container">
     <article aria-labelledby="page-title">
-      <h2 id="page-title">엔터프라이즈급 회원가입 폼</h2>
-      <p>접근성·i18n·보안 UX·오프라인까지 고려한 실무 기준 구현.</p>
-      <ul>
-        <li>앵커형 오류 요약 + 첫 오류 포커스</li>
-        <li>이메일 중복(모의) 비동기 검사 + 취소/디바운스</li>
-        <li>비밀번호 강도 게이지 + 체크리스트</li>
-        <li>국가코드별 전화 마스킹</li>
-        <li>런타임 i18n(ko/en) + 메시지 번들</li>
-        <li>접근성 약관 모달(포커스 트랩)</li>
+      <h2 id="page-title" >엔터프라이즈급 회원가입 폼</h2>
+      <p class="lead" >접근성·i18n·보안 UX·오프라인까지 고려한 실무 기준 구현.</p>
+      <ul class="bullets" aria-label="포함 기능">
+        <li >앵커형 오류 요약 + 첫 오류 포커스</li>
+        <li >이메일 중복(모의) 비동기 검사 + 취소/디바운스</li>
+        <li >비밀번호 강도 게이지 + 체크리스트</li>
+        <li >국가코드별 전화 마스킹</li>
+        <li >런타임 i18n(ko/en) + 메시지 번들</li>
+        <li >접근성 약관 모달(포커스 트랩)</li>
       </ul>
     </article>
 
   <section class="form-card" aria-label="회원가입 영역">
-      <h2 class="form-title" data-i18n="form.title">계정 만들기</h2>
+      <h2 class="form-title" >계정 만들기</h2>
 
       <!-- 오류 요약(앵커) -->
       <div id="error-summary" class="error-summary" role="alert" aria-live="polite" hidden>
-        <strong data-i18n="summary.title">다음 항목을 확인하세요:</strong>
+        <strong >다음 항목을 확인하세요:</strong>
         <ul id="error-list"></ul>
       </div>
 
       <form id="signup-form" method="post" novalidate aria-describedby="form-desc">
-        <p id="form-desc" class="visually-hidden" data-i18n="form.desc">필수 항목을 정확히 입력하고 제출하세요.</p>
+        <p id="form-desc" class="visually-hidden" >필수 항목을 정확히 입력하고 제출하세요.</p>
         <input type="hidden" name="csrf_token" value="CSRF_TOKEN_PLACEHOLDER" />
 
         <div class="form-field" id="field-name">
-          <label for="name" data-i18n="field.name.label">이름 <span aria-hidden="true" class="req">*</span></label>
+          <label for="name" >이름 <span aria-hidden="true" class="req">*</span></label>
           <input id="name" name="name" type="text" required autocomplete="name" placeholder="홍길동" aria-describedby="hint-name err-name" data-testid="name" />
-          <p id="hint-name" class="hint" data-i18n="field.name.hint">실명 또는 실사용 닉네임을 입력하세요.</p>
+          <p id="hint-name" class="hint" >실명 또는 실사용 닉네임을 입력하세요.</p>
           <p id="err-name" class="error" aria-live="polite"></p>
         </div>
 
         <div class="form-field" id="field-email">
-          <label for="email" data-i18n="field.email.label">이메일 <span aria-hidden="true" class="req">*</span></label>
+          <label for="email" >이메일 <span aria-hidden="true" class="req">*</span></label>
           <div class="row">
             <input id="email" name="email" type="email" required autocomplete="email" inputmode="email" placeholder="you@example.com" aria-describedby="hint-email err-email" data-testid="email" />
             <span id="email-status" class="status" aria-live="polite" aria-atomic="true"></span>
           </div>
-          <p id="hint-email" class="hint" data-i18n="field.email.hint">확인 메일이 전송됩니다. 정확한 주소를 입력하세요.</p>
+          <p id="hint-email" class="hint" >확인 메일이 전송됩니다. 정확한 주소를 입력하세요.</p>
           <p id="err-email" class="error" aria-live="polite"></p>
         </div>
 
         <div class="form-field" id="field-password">
-          <label for="password" data-i18n="field.password.label">비밀번호 <span aria-hidden="true" class="req">*</span></label>
+          <label for="password" >비밀번호 <span aria-hidden="true" class="req">*</span></label>
           <div class="row">
             <input id="password" name="password" type="password" required autocomplete="new-password" minlength="8" aria-describedby="hint-password err-password meter-desc checklist" data-testid="password" />
             <button type="button" class="btn btn-icon" id="pw-toggle" aria-label="비밀번호 표시" aria-pressed="false">보기</button>
@@ -99,38 +99,38 @@
           <div class="meter" role="meter" aria-valuemin="0" aria-valuemax="4" aria-valuenow="0" aria-labelledby="meter-desc" aria-live="polite">
             <div class="bar" id="pw-meter-bar"></div>
           </div>
-          <p id="meter-desc" class="hint" data-i18n="meter.label">비밀번호 강도: <span id="pw-strength-label">매우 약함</span></p>
+          <p id="meter-desc" class="hint" >비밀번호 강도: <span id="pw-strength-label">매우 약함</span></p>
 
           <ul id="checklist" class="checklist" aria-live="polite">
-            <li data-rule="len" data-i18n="check.len">8자 이상</li>
-            <li data-rule="mix" data-i18n="check.mix">영문 대/소문자 혼합</li>
-            <li data-rule="num" data-i18n="check.num">숫자 포함</li>
-            <li data-rule="sym" data-i18n="check.sym">기호 포함</li>
+            <li data-rule="len" >8자 이상</li>
+            <li data-rule="mix" >영문 대/소문자 혼합</li>
+            <li data-rule="num" >숫자 포함</li>
+            <li data-rule="sym" >기호 포함</li>
           </ul>
 
-          <p id="hint-password" class="hint" data-i18n="field.password.hint">사전 단어/반복/연속 패턴은 피하세요.</p>
+          <p id="hint-password" class="hint" >사전 단어/반복/연속 패턴은 피하세요.</p>
           <p id="err-password" class="error" aria-live="polite"></p>
         </div>
 
         <div class="form-field" id="field-confirm">
-          <label for="confirm" data-i18n="field.confirm.label">비밀번호 확인 <span aria-hidden="true" class="req">*</span></label>
+          <label for="confirm" >비밀번호 확인 <span aria-hidden="true" class="req">*</span></label>
           <input id="confirm" name="confirm" type="password" required autocomplete="new-password" aria-describedby="hint-confirm err-confirm" data-testid="confirm" />
-          <p id="hint-confirm" class="hint" data-i18n="field.confirm.hint">위 비밀번호와 동일하게 입력하세요.</p>
+          <p id="hint-confirm" class="hint" >위 비밀번호와 동일하게 입력하세요.</p>
           <p id="err-confirm" class="error" aria-live="polite"></p>
         </div>
 
         <fieldset class="form-field" id="field-gender">
-          <legend data-i18n="field.gender.legend">성별(선택)</legend>
+          <legend >성별(선택)</legend>
           <div class="choice-row">
-            <label><input type="radio" name="gender" value="female" /> <span data-i18n="field.gender.female">여성</span></label>
-            <label><input type="radio" name="gender" value="male" /> <span data-i18n="field.gender.male">남성</span></label>
-            <label><input type="radio" name="gender" value="na" /> <span data-i18n="field.gender.na">선택안함</span></label>
+            <label><input type="radio" name="gender" value="female" /> <span >여성</span></label>
+            <label><input type="radio" name="gender" value="male" /> <span >남성</span></label>
+            <label><input type="radio" name="gender" value="na" /> <span >선택안함</span></label>
           </div>
         </fieldset>
 
         <div class="form-field two-col" id="field-contact">
           <div>
-            <label for="tel" data-i18n="field.tel.label">휴대폰(선택)</label>
+            <label for="tel" >휴대폰(선택)</label>
             <div class="row">
               <select id="cc" name="cc" aria-label="국가 코드">
                 <option value="+82">+82</option>
@@ -140,11 +140,11 @@
               </select>
               <input id="tel" name="tel" type="tel" autocomplete="tel" inputmode="tel" placeholder="010-1234-5678" aria-describedby="hint-tel err-tel" data-testid="tel" />
             </div>
-            <p id="hint-tel" class="hint" data-i18n="field.tel.hint">숫자만 입력해도 자동 형식화됩니다.</p>
+            <p id="hint-tel" class="hint" >숫자만 입력해도 자동 형식화됩니다.</p>
             <p id="err-tel" class="error" aria-live="polite"></p>
           </div>
           <div>
-            <label for="country" data-i18n="field.country.label">국가/지역(선택)</label>
+            <label for="country" >국가/지역(선택)</label>
             <select id="country" name="country" autocomplete="country">
               <option value="">선택 안 함</option>
               <option value="KR">대한민국</option>
@@ -158,21 +158,21 @@
         <div class="form-field" id="field-agree">
           <label class="check">
             <input id="agree" name="agree" type="checkbox" required />
-            <span data-i18n="field.agree.text">이용약관 및 개인정보 처리방침에 동의합니다.</span>
+            <span >이용약관 및 개인정보 처리방침에 동의합니다.</span>
           </label>
           <div class="inline-links">
-            <button type="button" class="link" id="open-terms" data-i18n="field.agree.view">약관 보기</button>
+            <button type="button" class="link" id="open-terms" >약관 보기</button>
           </div>
           <p id="err-agree" class="error" aria-live="polite"></p>
         </div>
 
         <div class="form-actions">
-          <button class="btn btn-primary" type="submit" id="submit-btn" aria-live="polite" data-i18n="actions.submit">가입하기</button>
-          <button class="btn btn-ghost" type="reset" data-i18n="actions.reset">초기화</button>
-          <button class="btn btn-ghost" type="button" id="clear-draft" data-i18n="actions.clear">임시저장 삭제</button>
+          <button class="btn btn-primary" type="submit" id="submit-btn" aria-live="polite" >가입하기</button>
+          <button class="btn btn-ghost" type="reset" >초기화</button>
+          <button class="btn btn-ghost" type="button" id="clear-draft" >임시저장 삭제</button>
         </div>
 
-        <p class="legal"><span data-i18n="legal.prefix">가입하면</span> <a href="#" class="link" data-i18n="legal.tos">서비스 약관</a> <span data-i18n="legal.and">및</span> <a href="#" class="link" data-i18n="legal.pp">개인정보 처리방침</a> <span data-i18n="legal.suffix">에 동의하게 됩니다.</span></p>
+        <p class="legal"><span >가입하면</span> <a href="#" class="link" >서비스 약관</a> <span >및</span> <a href="#" class="link" >개인정보 처리방침</a> <span >에 동의하게 됩니다.</span></p>
       </form>
     </section>
   </main>
@@ -182,14 +182,14 @@
     <div class="modal-backdrop" data-close></div>
     <div class="modal-card" role="document">
       <header class="modal-header">
-        <h3 id="terms-title" data-i18n="modal.title">서비스 약관</h3>
+        <h3 id="terms-title" >서비스 약관</h3>
         <button class="btn btn-icon" id="close-terms" aria-label="닫기">✕</button>
       </header>
       <div class="modal-body">
-        <p data-i18n="modal.body">여기에 약관 본문이 들어갑니다. 실제 서비스에서는 링크된 약관 원문을 로드하세요.</p>
+        <p >여기에 약관 본문이 들어갑니다. 실제 서비스에서는 링크된 약관 원문을 로드하세요.</p>
       </div>
       <footer class="modal-footer">
-        <button class="btn btn-primary" id="agree-terms" data-i18n="modal.agree">동의</button>
+        <button class="btn btn-primary" id="agree-terms" >동의</button>
       </footer>
     </div>
   </div>

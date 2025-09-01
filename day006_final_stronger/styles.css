@@ -1,0 +1,55 @@
+*{box-sizing:border-box}
+html,body{margin:0}
+:root{
+  --bg:#fff; --fg:#111; --muted:#6b7280; --accent:#2e86ff;
+  --card:#f7f8fa; --border:#e5e7eb; --focus:0 0 0 3px #cfe3ff;
+  --target:44px;
+  --dur: .32s;
+  --ease: cubic-bezier(.22,.9,.24,1);
+}
+[data-theme="dark"]{
+  --bg:#0b0f14; --fg:#e6edf3; --muted:#9aa4af; --accent:#6ea8ff;
+  --card:#0f1720; --border:#1f2a37; --focus:0 0 0 3px rgba(110,168,255,.35);
+}
+@media (prefers-reduced-motion: reduce){
+  *{animation: none !important; transition: none !important}
+}
+body{font-family:ui-sans-serif,system-ui,-apple-system,"Segoe UI",Roboto,Helvetica,Arial;background:var(--bg);color:var(--fg);line-height:1.5}
+.container{max-width:1080px;margin:0 auto;padding:0 16px}
+.site-header .header{display:grid;grid-template-columns:auto 1fr auto;gap:12px;align-items:center;padding:12px 0}
+.logo{font-weight:800}.logo span{color:var(--accent)}
+.site-nav ul{list-style:none;display:flex;gap:12px;margin:0;padding:0}
+.actions{display:flex;gap:10px;align-items:center}
+.layout{display:grid;gap:28px;padding:24px 0 56px}
+.hero .lead{color:var(--muted);max-width:60ch}
+
+.grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:16px}
+.card{border:1px solid var(--border);background:var(--card);border-radius:12px;padding:12px}
+.note{color:var(--muted);margin:.25rem 0 0}
+
+.demo-card{height:110px;border-radius:12px;background:linear-gradient(135deg,#dbeafe,#eff6ff);display:grid;place-items:center;color:#1f2937;font-weight:700;box-shadow:0 4px 14px rgba(0,0,0,.08);transform:translateY(0);transition:transform .2s ease, box-shadow .2s ease}
+.hover-lift:hover, .hover-lift:focus-visible{transform:translateY(-6px);box-shadow:0 8px 24px rgba(0,0,0,.16);outline:none}
+
+.btn{padding:10px 14px;border:1px solid var(--border);border-radius:10px;background:var(--card);cursor:pointer;min-height:var(--target);transition:background .2s ease, box-shadow .2s ease, transform .15s ease}
+.btn:focus-visible{box-shadow:var(--focus);outline:none}
+.btn.cta:hover{background:#e8f0ff;transform:translateY(-2px)}
+.btn.primary{background:#2e86ff;color:#fff;border-color:#2e86ff}
+.btn.primary:hover{filter:brightness(1.05)}
+
+@keyframes pulsate{0%,100%{transform:scale(1);opacity:.9}50%{transform:scale(1.2);opacity:1}}
+.badge{display:inline-grid;place-items:center;width:44px;height:44px;border-radius:9999px;background:#10b981;color:#fff;font-size:18px;box-shadow:0 4px 14px rgba(0,0,0,.16)}
+.pulsate{animation:pulsate 1.2s ease-in-out infinite}
+
+.modal[hidden]{display:none}
+.modal{position:fixed;inset:0;display:grid;place-items:center;z-index:1000}
+.backdrop{position:absolute;inset:0;background:rgba(0,0,0,.5);opacity:0;transition:opacity var(--dur) var(--ease);will-change:opacity}
+/* Stronger motion: start lower & transparent */
+.dialog{position:relative;z-index:1;background:var(--bg);color:var(--fg);padding:16px;border-radius:12px;max-width:520px;width:92%;
+  transform:translateY(40px) scale(.98); opacity:0; will-change:transform,opacity;
+  transition:transform var(--dur) var(--ease), opacity var(--dur) var(--ease), box-shadow var(--dur) var(--ease);
+  box-shadow:0 12px 30px rgba(0,0,0,.18);
+}
+.modal[data-open="true"] .backdrop{opacity:1}
+.modal[data-open="true"] .dialog{transform:translateY(0) scale(1); opacity:1}
+
+.site-footer{border-top:1px solid var(--border);padding:16px 0;margin-top:24px}
