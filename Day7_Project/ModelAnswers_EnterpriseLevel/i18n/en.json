@@ -1,0 +1,13 @@
+{
+  "skip": "Skip to main content",
+  "nav.title": "Menu",
+  "nav.home": "Home",
+  "nav.docs": "Docs",
+  "nav.blog": "Blog",
+  "nav.contact": "Contact",
+  "nav.footer": "© 2025 LUNA",
+  "hero.title": "Responsive Design ①",
+  "hero.lead": "Mobile-first · Media queries · Responsive navigation (hamburger→desktop) · Card layout",
+  "bp.title": "Breakpoints",
+  "cards.title": "Content Cards (Responsive)"
+}

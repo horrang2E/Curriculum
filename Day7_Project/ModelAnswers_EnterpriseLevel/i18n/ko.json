@@ -1,0 +1,13 @@
+{
+  "skip": "본문으로 건너뛰기",
+  "nav.title": "메뉴",
+  "nav.home": "홈",
+  "nav.docs": "문서",
+  "nav.blog": "블로그",
+  "nav.contact": "문의",
+  "nav.footer": "© 2025 LUNA",
+  "hero.title": "Responsive Design ①",
+  "hero.lead": "모바일 퍼스트 · 미디어 쿼리 · 반응형 내비게이션(햄버거→가로 메뉴) · 카드 레이아웃",
+  "bp.title": "브레이크포인트",
+  "cards.title": "콘텐츠 카드 (반응형)"
+}

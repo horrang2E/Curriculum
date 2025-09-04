@@ -1,0 +1,124 @@
+<!doctype html>
+<html lang="ko" data-theme="light">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>PJT.LUNA Day7 ENTERPRISE+ — Responsive Design ①</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <a href="#main" class="skip-link" data-i18n="skip">본문으로 건너뛰기</a>
+
+  <header class="site-header" data-testid="header">
+    <div class="container header">
+      <a class="logo" href="#">LUNA<span>Enterprise+</span></a>
+
+      <button id="menu-toggle"
+              class="menu-toggle"
+              aria-label="메뉴 열기"
+              aria-controls="mobile-nav"
+              aria-expanded="false"
+              data-testid="menu-toggle">
+        ☰
+      </button>
+
+      <nav id="desktop-nav" class="desktop-nav" aria-label="주요" data-testid="desktop-nav">
+        <ul>
+          <li><a href="#" aria-current="page" data-i18n="nav.home">홈</a></li>
+          <li><a href="#" data-i18n="nav.docs">문서</a></li>
+          <li><a href="#" data-i18n="nav.blog">블로그</a></li>
+          <li><a href="#" data-i18n="nav.contact">문의</a></li>
+        </ul>
+      </nav>
+
+      <div class="actions">
+        <select id="lang" aria-label="언어 선택">
+          <option value="ko">한국어</option>
+          <option value="en">English</option>
+        </select>
+        <button id="theme-toggle" class="btn btn-ghost" aria-pressed="false" aria-label="다크 모드 전환" data-testid="theme-toggle">🌓</button>
+      </div>
+    </div>
+  </header>
+
+  <!-- Mobile drawer nav -->
+  <div id="mobile-nav" class="mobile-nav" hidden role="dialog" aria-modal="true" aria-labelledby="mobile-nav-title">
+    <div class="backdrop" data-close></div>
+    <aside class="drawer" role="document">
+      <header class="drawer-header">
+        <h2 id="mobile-nav-title" class="title" data-i18n="nav.title">메뉴</h2>
+        <button id="close-drawer" class="btn" aria-label="닫기" data-testid="close-drawer">✕</button>
+      </header>
+      <nav class="drawer-body" aria-label="모바일 내비게이션">
+        <ul>
+          <li><a href="#" data-i18n="nav.home">홈</a></li>
+          <li><a href="#" data-i18n="nav.docs">문서</a></li>
+          <li><a href="#" data-i18n="nav.blog">블로그</a></li>
+          <li><a href="#" data-i18n="nav.contact">문의</a></li>
+        </ul>
+      </nav>
+      <footer class="drawer-footer">
+        <small data-i18n="nav.footer">© 2025 LUNA</small>
+      </footer>
+    </aside>
+  </div>
+
+  <main id="main" class="container layout" data-testid="main">
+    <section class="hero">
+      <h1 data-i18n="hero.title">Responsive Design ①</h1>
+      <p class="lead" data-i18n="hero.lead">모바일 퍼스트 · 미디어 쿼리 · 반응형 내비게이션(햄버거→가로 메뉴) · 카드 레이아웃</p>
+    </section>
+
+    <section class="bp" aria-labelledby="bp-title">
+      <h2 id="bp-title" data-i18n="bp.title">브레이크포인트</h2>
+      <ul class="bullets">
+        <li><strong>모바일</strong> <code>0–767px</code></li>
+        <li><strong>태블릿</strong> <code>768–1023px</code></li>
+        <li><strong>데스크탑</strong> <code>1024px+</code></li>
+      </ul>
+    </section>
+
+    <section class="cards" aria-labelledby="cards-title">
+      <h2 id="cards-title" data-i18n="cards.title">콘텐츠 카드 (반응형)</h2>
+      <div class="card-grid" data-testid="card-grid">
+        <!-- Example cards with responsive images -->
+        <article class="card" data-testid="card" style="content-visibility:auto; contain-intrinsic-size: 300px 180px;">
+          <img loading="lazy"
+               src="images/pic-640.jpg"
+               srcset="images/pic-640.jpg 640w, images/pic-960.jpg 960w, images/pic-1280.jpg 1280w"
+               sizes="(max-width: 767px) 100vw, (max-width: 1023px) 50vw, 33vw"
+               alt="샘플 이미지 1">
+          <h3>카드 1</h3>
+          <p class="note">반응형 이미지 + lazy loading</p>
+        </article>
+        <article class="card" data-testid="card" style="content-visibility:auto; contain-intrinsic-size: 300px 180px;">
+          <img loading="lazy"
+               src="images/pic-640.jpg"
+               srcset="images/pic-640.jpg 640w, images/pic-960.jpg 960w, images/pic-1280.jpg 1280w"
+               sizes="(max-width: 767px) 100vw, (max-width: 1023px) 50vw, 33vw"
+               alt="샘플 이미지 2">
+          <h3>카드 2</h3>
+          <p class="note">content-visibility로 성능 최적화</p>
+        </article>
+        <article class="card" data-testid="card" style="content-visibility:auto; contain-intrinsic-size: 300px 180px;">
+          <img loading="lazy"
+               src="images/pic-640.jpg"
+               srcset="images/pic-640.jpg 640w, images/pic-960.jpg 960w, images/pic-1280.jpg 1280w"
+               sizes="(max-width: 767px) 100vw, (max-width: 1023px) 50vw, 33vw"
+               alt="샘플 이미지 3">
+          <h3>카드 3</h3>
+          <p class="note">모바일 1열 → 태블릿 2열 → 데스크탑 3열</p>
+        </article>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer" role="contentinfo">
+    <div class="container">
+      <small>© 2025 LUNA Web</small>
+    </div>
+  </footer>
+
+  <script type="module" src="script.js"></script>
+</body>
+</html>
