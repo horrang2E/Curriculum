@@ -1,0 +1,69 @@
+:root{
+  --bg:#0b1020; --fg:#e9eefb; --muted:#a7b3d1; --card:#131a33; --accent:#7aa2ff;
+  --shadow: 0 10px 30px rgba(0,0,0,.35);
+}
+@media (prefers-color-scheme: light){
+  :root{ --bg:#f7f9ff; --fg:#0b1020; --muted:#445; --card:#fff; --accent:#3a66ff; }
+}
+*{box-sizing:border-box}
+html,body{margin:0;padding:0}
+body{font-family:system-ui,-apple-system,Segoe UI,Roboto,Arial,sans-serif;background:var(--bg);color:var(--fg);line-height:1.6}
+a{color:var(--accent)}
+.skip-link{position:absolute;left:-9999px;top:auto;width:1px;height:1px;overflow:hidden}
+.skip-link:focus{left:1rem;top:1rem;width:auto;height:auto;background:var(--accent);color:#fff;padding:.5rem .75rem;border-radius:.5rem;z-index:9999}
+.site-header{display:flex;align-items:center;justify-content:space-between;padding:1rem 1.25rem;background:rgba(10,15,30,.7);backdrop-filter:blur(6px);border-bottom:1px solid rgba(255,255,255,.06);position:sticky;top:0}
+.badge{background:var(--accent);color:#fff;border-radius:99px;padding:.15rem .5rem;font-size:.75rem}
+.actions{display:flex;align-items:center;gap:.5rem}
+.btn,.btn-outline{border-radius:.5rem;padding:.5rem .8rem;cursor:pointer;border:1px solid rgba(255,255,255,.15)}
+.btn{background:var(--card);color:var(--fg)}
+.btn-outline{background:transparent;color:var(--fg)}
+.switch{display:flex;align-items:center;gap:.5rem;background:var(--card);padding:.25rem .5rem;border-radius:.5rem}
+.switch input{accent-color:var(--accent)}
+
+main{max-width:1100px;margin:1.5rem auto;padding:0 1rem}
+.panel{margin:1.5rem 0}
+.sub{color:var(--muted);margin-top:-.5rem}
+.loader-region{position:relative;min-height:360px;margin-top:1rem}
+.card{background:var(--card);border:1px solid rgba(255,255,255,.08);border-radius:1rem;overflow:hidden;box-shadow:var(--shadow)}
+.card .body{padding:1rem}
+.card img{display:block;width:100%;height:auto}
+
+.spinner{width:56px;height:56px;border-radius:50%;border:4px solid rgba(255,255,255,.3);border-top-color:var(--accent);animation:spin 1s linear infinite;margin:3rem auto}
+@keyframes spin{to{transform:rotate(360deg)}}
+
+/* Skeleton */
+.skeleton{display:grid;grid-template-columns:1fr;gap:1rem;border-radius:1rem;overflow:hidden;background:linear-gradient(90deg, rgba(255,255,255,.06), rgba(255,255,255,.15), rgba(255,255,255,.06));background-size:200% 100%;animation:shimmer 1.25s infinite linear;padding:1rem}
+.sk-img{aspect-ratio:2/1;background:rgba(255,255,255,.08);border-radius:.75rem}
+.sk-lines span{display:block;height:12px;background:rgba(255,255,255,.1);border-radius:.5rem;margin:.5rem 0}
+.sk-lines span:nth-child(2){width:70%}.sk-lines span:nth-child(3){width:40%}
+@keyframes shimmer{0%{background-position:200% 0}100%{background-position:-200% 0}}
+
+/* Dropdown with fade+slide */
+.dropdown{position:relative;margin-top:.75rem;border:1px solid rgba(255,255,255,.1);border-radius:.5rem;background:var(--card);overflow:hidden;box-shadow:var(--shadow)}
+.dropdown ul{list-style:none;margin:0;padding:.5rem}
+.dropdown a{display:block;padding:.5rem;border-radius:.25rem;color:var(--fg);text-decoration:none}
+.dropdown a:hover{background:rgba(255,255,255,.06)}
+
+/* Modal */
+.modal{position:fixed;inset:0;display:grid;place-items:center;z-index:1000}
+.modal-backdrop{position:absolute;inset:0;background:rgba(0,0,0,.5);backdrop-filter:blur(2px)}
+.modal-panel{position:relative;width:min(92vw,880px);max-height:86vh;background:var(--card);border:1px solid rgba(255,255,255,.1);border-radius:1rem;box-shadow:var(--shadow);overflow:auto;will-change:transform,opacity}
+.modal-header,.modal-footer{display:flex;align-items:center;justify-content:space-between;padding:1rem;border-bottom:1px solid rgba(255,255,255,.08)}
+.modal-footer{border-top:1px solid rgba(255,255,255,.08);border-bottom:none}
+.icon-btn{background:transparent;border:1px solid rgba(255,255,255,.2);color:var(--fg);border-radius:.5rem;padding:.25rem .5rem;cursor:pointer}
+
+.site-footer{padding:2rem 1rem;color:var(--muted);text-align:center;border-top:1px solid rgba(255,255,255,.06)}
+
+/* Transitions */
+.enter-from-below{opacity:0;transform:translateY(16px);transition:opacity .3s ease, transform .3s ease;will-change:transform,opacity}
+.enter-from-below.show{opacity:1;transform:translateY(0)}
+.fade-slide{opacity:0;transform:translateY(8px);transition:opacity .2s ease, transform .2s ease}
+.fade-slide.show{opacity:1;transform:translateY(0)}
+
+/* Reduced motion */
+@media (prefers-reduced-motion: reduce){
+  .spinner{animation-duration:.01ms;animation-iteration-count:1}
+  .enter-from-below,.fade-slide{transition-duration:.01ms}
+  .skeleton{animation-duration:.01ms}
+}
+.visually-hidden{position:absolute;left:-9999px}

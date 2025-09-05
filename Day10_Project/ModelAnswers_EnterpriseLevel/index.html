@@ -1,0 +1,87 @@
+<!doctype html>
+<html lang="ko">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>PJT.LUNA Day10 — Advanced Animations (Enterprise+)</title>
+  <meta name="description" content="Spinner, Skeleton, Fade/Slide transitions with performance & accessibility best practices.">
+  <link rel="stylesheet" href="./styles.css">
+</head>
+<body>
+  <a class="skip-link" href="#main">본문 바로가기</a>
+
+  <header class="site-header" role="banner">
+    <h1>PJT.LUNA <span class="badge">Day10</span></h1>
+    <nav class="actions" aria-label="동작">
+      <button id="openModal" class="btn" data-testid="btn-open-modal">모달 열기</button>
+      <button id="loadData" class="btn" data-testid="btn-load">콘텐츠 로드</button>
+      <label class="switch">
+        <input type="checkbox" id="reduceMotionToggle" aria-label="모션 최소화 토글">
+        <span>Reduce Motion</span>
+      </label>
+    </nav>
+  </header>
+
+  <main id="main" tabindex="-1">
+    <section class="panel" aria-labelledby="loading-demo-title">
+      <h2 id="loading-demo-title">로딩 패턴 데모 (Spinner → Skeleton → 실제 콘텐츠)</h2>
+      <p class="sub">버튼을 누르면 네트워크 지연을 시뮬레이션하여 단계적 상태 전환을 보여줍니다.</p>
+
+      <div id="loaderRegion" class="loader-region" role="status" aria-live="polite" aria-busy="false">
+        <div id="spinner" class="spinner" hidden aria-hidden="true" data-testid="spinner">
+          <span class="visually-hidden">Loading…</span>
+        </div>
+        <div id="skeleton" class="skeleton" hidden aria-hidden="true" data-testid="skeleton">
+          <div class="sk-img"></div>
+          <div class="sk-lines"><span></span><span></span><span></span></div>
+        </div>
+        <article id="contentCard" class="card enter-from-below" hidden data-testid="content-card">
+          <img src="./images/hero.jpg" alt="콘텐츠 대표 이미지" width="1200" height="600" decoding="async">
+          <div class="body">
+            <h3>애니메이션 최적화 가이드</h3>
+            <p>transform + opacity 중심 애니메이션, will-change, 레이어 분리로 성능을 확보하세요.</p>
+            <a href="#" class="link">자세히 보기</a>
+          </div>
+        </article>
+      </div>
+    </section>
+
+    <section class="panel" aria-labelledby="dropdown-title">
+      <h2 id="dropdown-title">Fade + Slide 전환</h2>
+      <button id="toggleDropdown" class="btn-outline" data-testid="btn-dropdown">메뉴 토글</button>
+      <div id="dropdown" class="dropdown" hidden data-testid="dropdown">
+        <ul>
+          <li><a href="#">대시보드</a></li>
+          <li><a href="#">프로필</a></li>
+          <li><a href="#">설정</a></li>
+        </ul>
+      </div>
+    </section>
+  </main>
+
+  <div id="modal" class="modal" role="dialog" aria-modal="true" aria-labelledby="modal-title" hidden>
+    <div class="modal-backdrop" data-testid="modal-backdrop"></div>
+    <div class="modal-panel enter-from-below" role="document">
+      <header class="modal-header">
+        <h2 id="modal-title">모달 예시 (포커스 트랩)</h2>
+        <button id="closeModal" class="icon-btn" aria-label="모달 닫기" data-testid="btn-close-modal">✕</button>
+      </header>
+      <div class="modal-body">
+        <p>모달은 Fade + Slide로 열리고 닫힙니다. ESC로 닫을 수 있으며, 배경은 스크롤 락됩니다.</p>
+        <img src="./images/card.jpg" alt="모달 내부 이미지" width="800" height="500" decoding="async">
+      </div>
+      <footer class="modal-footer">
+        <button class="btn" id="confirmBtn" data-testid="btn-confirm">확인</button>
+      </footer>
+    </div>
+  </div>
+
+  <div id="srStatus" class="visually-hidden" aria-live="polite"></div>
+
+  <footer class="site-footer" role="contentinfo">
+    <small>© PJT.LUNA — Enterprise+ Day10. <a href="./README.md">README</a></small>
+  </footer>
+
+  <script src="./script.js" defer></script>
+</body>
+</html>
