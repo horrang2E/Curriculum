@@ -1,0 +1,13 @@
+/* ===== components/button.css ===== */
+.btn{
+  display:inline-block; cursor:pointer; user-select:none;
+  border-radius:var(--radius-sm); padding:.7rem 1rem; text-decoration:none;
+  border:1px solid rgba(0,0,0,.08); background:var(--surface); color:var(--fg);
+  transition:transform .06s ease, box-shadow .2s ease;
+}
+.btn:active{ transform:translateY(1px) }
+.btn--primary{ background:var(--accent); border-color:transparent; color:#fff; box-shadow:0 10px 20px rgba(58,102,255,.25) }
+.btn--outline{ background:transparent; border:1px solid rgba(0,0,0,.15); color:var(--fg) }
+.btn--ghost{ background:transparent; border:1px solid rgba(0,0,0,.08) }
+[data-theme="dark"] .btn{ border-color:rgba(255,255,255,.12) }
+[data-theme="dark"] .btn--outline{ border-color:rgba(255,255,255,.2) }

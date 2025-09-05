@@ -1,3 +1,12 @@
+document.addEventListener('DOMContentLoaded', () => {
+  // Force-hide in case any resets/extensions broke the [hidden] default
+  document.getElementById('modal')?.setAttribute('hidden','');
+  document.getElementById('dropdown')?.setAttribute('hidden','');
+  document.getElementById('spinner')?.setAttribute('hidden','');
+  document.getElementById('skeleton')?.setAttribute('hidden','');
+  document.getElementById('contentCard')?.setAttribute('hidden','');
+});
+
 /* Day10 — Advanced Animations with performance & a11y */
 const openModalBtn = document.getElementById('openModal');
 const closeModalBtn = document.getElementById('closeModal');

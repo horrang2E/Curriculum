@@ -1,0 +1,108 @@
+<!doctype html>
+<html lang="ko">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>PJT.LUNA Day11 — Landing Page 클론코딩 (Enterprise+)</title>
+  <meta name="description" content="시맨틱 구조 · 반응형 · 다크모드 · 접근성 · 성능 최적화가 포함된 랜딩 페이지 클론코딩 예제.">
+  <link rel="stylesheet" href="./styles.css">
+</head>
+<body>
+  <a href="#main" class="skip-link">본문 바로가기</a>
+
+  <header class="site-header" data-testid="site-header" role="banner">
+    <div class="brand">
+      <strong>PJT.LUNA</strong>
+      <span class="badge">Day11</span>
+    </div>
+    <nav class="site-nav" aria-label="주요 메뉴">
+      <a href="#features">특징</a>
+      <a href="#testimonials">후기</a>
+      <a href="#cta" class="cta-link">무료 시작</a>
+    </nav>
+    <nav class="actions" aria-label="동작">
+      <button id="themeToggle" class="btn" aria-pressed="false" data-testid="btn-theme">🌗 테마</button>
+    </nav>
+  </header>
+
+  <main id="main" tabindex="-1">
+    <section id="hero" class="hero" aria-labelledby="hero-title" data-testid="hero">
+      <div class="hero-text">
+        <h1 id="hero-title">당신의 아이디어를 현실로.</h1>
+        <p class="lead">엔터프라이즈 품질의 웹을 누구나. 반응형·접근성·성능을 기본으로.</p>
+        <div class="hero-cta">
+          <a href="#cta" class="btn-primary" data-testid="btn-hero-cta">지금 무료로 시작</a>
+          <a href="#features" class="btn-outline">제품 보기</a>
+        </div>
+      </div>
+      <div class="hero-media">
+        <img src="./images/hero-1200.jpg" alt="제품 데모 스크린샷" width="1200" height="700" loading="lazy" decoding="async">
+      </div>
+    </section>
+
+    <section id="features" class="features" aria-labelledby="features-title" data-testid="features">
+      <h2 id="features-title">핵심 기능</h2>
+      <ul class="feature-grid" role="list">
+        <li class="card">
+          <img src="./images/feature1.jpg" alt="반응형 레이아웃" width="800" height="600" loading="lazy">
+          <h3>반응형 레이아웃</h3>
+          <p>모바일·태블릿·데스크탑에서 자동으로 최적 배치.</p>
+        </li>
+        <li class="card">
+          <img src="./images/feature2.jpg" alt="접근성 내장" width="800" height="600" loading="lazy">
+          <h3>접근성 내장</h3>
+          <p>시맨틱 구조, 키보드 탐색, ARIA 라이브영역까지 기본 제공.</p>
+        </li>
+        <li class="card">
+          <img src="./images/feature3.jpg" alt="성능 최적화" width="800" height="600" loading="lazy">
+          <h3>성능 최적화</h3>
+          <p>지연 로딩·최소한의 애니메이션·Lighthouse 점수 향상.</p>
+        </li>
+      </ul>
+    </section>
+
+    <section id="testimonials" class="testimonials" aria-labelledby="testimonials-title" data-testid="testimonials">
+      <h2 id="testimonials-title">사용자 후기</h2>
+      <ul class="testi-grid" role="list">
+        <li class="testi">
+          <img src="./images/avatar1.jpg" alt="고객 A 아바타" width="80" height="80" loading="lazy">
+          <blockquote>
+            <p>“접근성 체크리스트까지 기본이라 바로 도입했습니다.”</p>
+            <cite>— 고객 A</cite>
+          </blockquote>
+        </li>
+        <li class="testi">
+          <img src="./images/avatar2.jpg" alt="고객 B 아바타" width="80" height="80" loading="lazy">
+          <blockquote>
+            <p>“반응형과 성능이 훌륭합니다. 유지보수도 쉬워요.”</p>
+            <cite>— 고객 B</cite>
+          </blockquote>
+        </li>
+        <li class="testi">
+          <img src="./images/avatar3.jpg" alt="고객 C 아바타" width="80" height="80" loading="lazy">
+          <blockquote>
+            <p>“엔터프라이즈 품질에 딱 맞는 설계.”</p>
+            <cite>— 고객 C</cite>
+          </blockquote>
+        </li>
+      </ul>
+    </section>
+
+    <section id="cta" class="cta" aria-labelledby="cta-title" data-testid="cta">
+      <h2 id="cta-title">지금 무료로 시작하세요</h2>
+      <form class="cta-form" aria-label="무료 시작 폼" data-testid="cta-form">
+        <label for="email">이메일</label>
+        <input id="email" name="email" type="email" placeholder="you@example.com" required inputmode="email">
+        <button class="btn-primary" type="submit">무료 시작</button>
+      </form>
+      <div class="visually-hidden" aria-live="polite" id="srStatus"></div>
+    </section>
+  </main>
+
+  <footer class="site-footer" role="contentinfo">
+    <small>© PJT.LUNA — Enterprise+ Day11. <a href="./README.md">README</a></small>
+  </footer>
+
+  <script src="./script.js" defer></script>
+</body>
+</html>

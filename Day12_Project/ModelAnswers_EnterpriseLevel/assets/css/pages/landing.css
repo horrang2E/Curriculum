@@ -1,0 +1,16 @@
+/* ===== pages/landing.css ===== */
+.main{}
+.hero{ display:grid; gap:var(--space-6); align-items:center; padding:var(--space-8) 0 }
+.hero__lead{ color:var(--muted) }
+.hero__actions{ display:flex; gap:var(--space-3); flex-wrap:wrap; margin-top:var(--space-3) }
+@media(min-width:900px){ .hero{ grid-template-columns:1.15fr 1fr } }
+
+.testimonials{}
+.testi-list{ list-style:none; display:grid; gap:var(--space-3); padding:0; margin:var(--space-4) 0 }
+.testi{ display:flex; gap:var(--space-3); align-items:flex-start; background:var(--surface); border:1px solid rgba(0,0,0,.08); border-radius:var(--radius-md); padding:var(--space-3) }
+[data-theme="dark"] .testi{ border-color:rgba(255,255,255,.1) }
+.testi__quote{ margin:0 }
+.testi__cite{ display:block; color:var(--muted); margin-top:.25rem }
+
+.footer{ padding:var(--space-8) var(--space-4); color:var(--muted); text-align:center; border-top:1px solid rgba(0,0,0,.06) }
+[data-theme="dark"] .footer{ border-top-color:rgba(255,255,255,.06) }

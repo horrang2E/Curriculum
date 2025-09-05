@@ -1,0 +1,18 @@
+/* ===== components/header.css ===== */
+.header{
+  position:sticky; top:0; z-index:50;
+  display:grid; grid-template-columns:1fr auto auto; align-items:center; gap:var(--space-4);
+  padding:var(--space-4) var(--space-4);
+  background:rgba(255,255,255,.85); border-bottom:1px solid rgba(0,0,0,.06); backdrop-filter:blur(6px);
+}
+[data-theme="dark"] .header{
+  background:rgba(10,15,30,.7); border-bottom:1px solid rgba(255,255,255,.08);
+}
+.header__brand{ display:flex; align-items:center; gap:var(--space-2) }
+.header__logo{ letter-spacing:.3px }
+.badge{ background:var(--accent); color:#fff; border-radius:999px; padding:.15rem .5rem; font-size:.75rem }
+.nav{ display:none; gap:var(--space-4) }
+.nav__link{ text-decoration:none; color:inherit; opacity:.9 }
+.nav__link--cta{ font-weight:600 }
+.header__actions{ justify-self:end }
+@media(min-width:820px){ .nav{ display:flex } }
